@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.1.220
+                username: ttz
+                password: 123456
+                port: 5672
+  application:
+    name: spring-cloud-stream-rabbitmq

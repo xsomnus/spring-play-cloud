@@ -1,0 +1,52 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+    property-naming-strategy: SNAKE_CASE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: springboot-redis-test
+    url: jdbc:mysql://192.168.1.220:3306/maynrent?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: Xm123456.
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      idle-timeout: 30000
+      pool-name: USER_SPRINGBOOT-REDIS-TEST_HikariPool
+      auto-commit: true
+      maximum-pool-size: 15
+  redis:
+    host: 192.168.1.220
+    port: 6379
+    password: 123456
+    database: 8
+    timeout: 3600ms
+    lettuce:
+      shutdown-timeout: 5000ms
+      pool:
+        max-active: 15
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.xsomnus.springbootredis.pojo.entity
+  typeEnumsPackage: com.xsomnus.springbootredis.pojo.enums
+  global-config:
+    db-config:
+      id-type: input
+      field-strategy: not_empty
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-underline: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+server:
+  port: 6300

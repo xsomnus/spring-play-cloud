@@ -1,0 +1,44 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    stream:
+      defaultBinder: defaultRabbit
+      bindings:
+        input:
+          destination: mqTestDefault
+        output:
+          destination: mqTestDefault
+          contentType: text/plain
+          binder: defaultRabbit
+        inputOrder:
+          destination: mqTestOrder
+          group: orderReceiveGroup1
+        outputOrder:
+          destination: mqTestOrder
+          #contentType: text/plain
+        inputProductAdd:
+          destination: mqTestProduct
+          group: addProductHandler
+        outputProductAdd:
+          destination: mqTestProduct
+      rabbit:
+        bindings:
+          inputProductAdd:
+            consumer:
+              bindingRoutingKey: addProduct.*
+          outputProductAdd:
+            producer:
+              routing-key-expression: '''addProduct.*'''
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.1.220
+                username: ttz
+                password: 123456
+                port: 5672
+  application:
+    name: spring-cloud-stream-rabbitmq
