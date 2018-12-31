@@ -11,6 +11,10 @@
     <modules>
         <module>design-patterns</module>
         <module>spring-game</module>
+        <module>event-driven-dps</module>
+        <module>play-cloud-stream</module>
+        <module>springboot-mvc</module>
+        <module>springboot-redis</module>
     </modules>
 
     <parent>
