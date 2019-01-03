@@ -4,6 +4,7 @@ package com;
 import com.lifecycle.LifeCycleBean;
 import com.lifecycle.LifeCycleBeanConfig;
 import org.junit.Test;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
@@ -54,6 +55,9 @@ public class MainConfigTest {
 
     @Test
     public void testLifeCycleBean() {
+
+        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
+        defaultListableBeanFactory.addBeanPostProcessor(new LifeCycleBean());
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(LifeCycleBeanConfig.class);
 
         LifeCycleBean lifeCycle = applicationContext.getBean("lifeCycleBean", LifeCycleBean.class);
