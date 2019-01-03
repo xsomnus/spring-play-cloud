@@ -1,8 +1,8 @@
 package com;
 
-import io.vavr.Tuple2;
-import io.vavr.collection.List;
-import io.vavr.collection.Stream;
+
+import com.lifecycle.LifeCycleBean;
+import com.lifecycle.LifeCycleBeanConfig;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -51,12 +51,25 @@ public class MainConfigTest {
         System.out.println(beansOfType);
     }
 
+
+    @Test
+    public void testLifeCycleBean() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(LifeCycleBeanConfig.class);
+
+        LifeCycleBean lifeCycle = applicationContext.getBean("lifeCycleBean", LifeCycleBean.class);
+        lifeCycle.display();
+        System.out.println("方法调用完成，开始进行关闭");
+        applicationContext.registerShutdownHook();
+
+    }
+
+
     @Test
     public void testStream() {
 
-        List<Tuple2<Integer, String>> tuple2List = Stream.ofAll(1, 2, 3)
+       /* List<Tuple2<Integer, String>> tuple2List = Stream.ofAll(1, 2, 3)
                 .zip(List.of("a", "b"))
-                .toList();
+                .toList();*/
 
     }
 }
