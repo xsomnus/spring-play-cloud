@@ -1,4 +1,4 @@
-package com.xsomnus.patterns.struct;
+package com.xsomnus.patterns.struct.bridge;
 
 import com.xsomnus.patterns.struct.bridge.Color;
 import com.xsomnus.patterns.struct.bridge.Shape;
@@ -13,7 +13,7 @@ import com.xsomnus.patterns.struct.bridge.shapes.Square;
  * 桥接模式包含如下角色：
  * <p>
  * Abstraction：抽象类  --- {@link Shape}
- * RefinedAbstraction：扩充抽象类 {@link Color}
+ * RefinedAbstraction/ Interface：扩充抽象类 {@link Color}
  * Implementor：实现类接口 --{@link Circle,Rectangle,Square}
  * ConcreteImplementor：具体实现类  {@link White,Black,Blue}
  * </p>
