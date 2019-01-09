@@ -3,6 +3,7 @@ package xsomnus.learn_java;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,8 +22,9 @@ public class HashMapTest {
 
     public static void main(String[] args) {
         HashMapTest test = new HashMapTest();
-        test.testConcurrentHashMap();
-        test.testHashMap();
+//        test.testConcurrentHashMap();
+//        test.testHashMap();
+        test.testHashMapHashConflict();
     }
 
     public void testConcurrentHashMap() {
@@ -51,5 +53,18 @@ public class HashMapTest {
 
         System.out.println("================" + this.users.size());
         executorService.shutdown();
+    }
+
+
+    public void testHashMapHashConflict() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("aa", 1);
+        hashMap.put("aa", 1);
+        hashMap.put("aa", 2);
+        hashMap.put(3104, "cc");
+        hashMap.put("bb", "cc");
+        System.out.println("aa".hashCode());
+        System.out.println(hashMap.get("aa").hashCode());
+        System.out.println(hashMap.get(3104).hashCode());
     }
 }

@@ -1,4 +1,4 @@
-package com.xsomnus.patterns.struct.strategy;
+package com.xsomnus.patterns.behavior.strategy;
 
 /**
  * @author xsomnus_xiawenye
