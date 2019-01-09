@@ -11,7 +11,6 @@ import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
-import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
@@ -22,6 +21,13 @@ import org.springframework.messaging.SubscribableChannel;
 import org.springframework.messaging.support.MessageBuilder;
 
 import java.util.Date;
+
+
+/**
+ * stream具体实现绑定的类
+ * {@link org.springframework.cloud.stream.binder.rabbit.provisioning.RabbitExchangeQueueProvisioner}
+ *
+ */
 
 @SpringBootApplication
 @EnableBinding({Processor.class, OrderProcessor.class, ProductProcessor.class})
