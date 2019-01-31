@@ -1,6 +1,7 @@
 package com.xsomnus.springbootmvc.controller;
 
 import com.xsomnus.springbootmvc.config.PlaceOrderSession;
+import com.xsomnus.springbootmvc.pojo.User;
 import com.xsomnus.springbootmvc.pojo.UserRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,12 @@ public class TestController {
     @GetMapping("/test2")
     public ServletContext test2(HttpServletRequest request) {
         return placeOrderSession.sessionId();
+    }
+
+
+    @GetMapping("/testjackson")
+    public User getUser() {
+        return new User(12, "既然选择远方，便只顾风雨兼程");
     }
 
 }
