@@ -7,7 +7,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: springboot-redis-test
-    url: jdbc:mysql://192.168.1.220:3306/maynrent?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.1.220:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: Xm123456.
     type: com.zaxxer.hikari.HikariDataSource
@@ -39,7 +39,7 @@ mybatis-plus:
   typeEnumsPackage: com.xsomnus.springbootredis.pojo.enums
   global-config:
     db-config:
-      id-type: input
+      id-type: auto
       field-strategy: not_empty
       logic-delete-value: 1
       logic-not-delete-value: 0

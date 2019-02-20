@@ -1,10 +1,10 @@
 package com.xsomnus.springbootredis.pojo.entity;
 
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,8 +17,9 @@ import java.time.OffsetDateTime;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Builder
 @TableName("sys_user")
-@KeySequence("sysUserId")
+//@KeySequence("SysUserId")
 public class SysUser extends Model<SysUser> {
 
     @TableId

@@ -14,7 +14,7 @@ public interface SysUserService extends IService<SysUser> {
 
     IPage<SysUser> listAll(Long page, Long limit);
 
-    boolean addUser(SysUser sysUser);
+    boolean addUser();
 
 
 }

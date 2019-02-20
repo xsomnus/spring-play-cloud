@@ -36,8 +36,8 @@ public class SysUserController {
     }
 
     @PostMapping("/sys/user")
-    public Boolean addUser(@RequestBody SysUser sysUser) {
-        return sysUserService.addUser(sysUser);
+    public Boolean addUser() {
+        return sysUserService.addUser();
     }
 
     @PutMapping("/sys/user")

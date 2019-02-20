@@ -22,10 +22,10 @@ public class MybatisPlusConfigure {
         return new PaginationInterceptor();
     }
 
-    @Bean
+   /*@Bean
     public IKeyGenerator keyGenerator() {
         return new PostgreKeyGenerator();
-    }
+    }*/
 
     @Bean
     public ISqlInjector sqlInjector() {
